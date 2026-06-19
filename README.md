@@ -1,16 +1,6 @@
 # analise-de-churn-de-clientes-bancarios
 Analisar o comportamento de churn de clientes bancários para identificar padrões relacionados à saída de clientes da base e gerar insights que possam apoiar ações de retenção.
 
-# Rent_project
-Rent project using Python
-
-
-
-![GitHub repo size](https://img.shields.io/github/repo-size/SEU_USER/SEU_REPO?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/SEU_USER/SEU_REPO?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/SEU_USER/SEU_REPO?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/SEU_USER/SEU_REPO?style=for-the-badge)
-
 ---
 
 ## 📌 Project Overview
@@ -105,6 +95,14 @@ dados.head()
 ## 🛠️ Technologies Used
 
 * Python as Pandas
+* Google Colab
+* Matplotlib
+* Seaborn
+* GitHub
+
+
+
+
 
 ---
 
