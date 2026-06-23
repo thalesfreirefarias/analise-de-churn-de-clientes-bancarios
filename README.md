@@ -5,39 +5,54 @@ Analisar o comportamento de churn de clientes bancários para identificar padrõ
 
 ## 📌 Project Overview
 
-Python project focused on ** Rent Analysis**
+Python project focused on ** Churn Analysis**
 
-### Avarage Rent value by accomodation type
-
-```
-dados.groupby('Tipo').mean(numeric_only=True).round(2)
-
-Get just numeric values to calculate mean
-
-media = round(dados.groupby('Tipo')['Valor'].mean(),2).sort_values(ascending=True)
-print(media)
-
-Get especific values on Type Accomodation.
-```
-
-### Bar visualization
+### Imoport data
 
 ```
-df_preco_tipo = dados.groupby('Tipo')[['Valor']].mean().sort_values('Valor')
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style="whitegrid")
+plt.rcParams["figure.figsize"] = (10, 6)
 
-df_preco_tipo.plot(kind='barh', figsize=(14, 10), color ='purple');
+
+df = pd.read_csv("bank_churn.csv")
+df.head()
 ```
+
+### Cancelled percentage
+
+```
+churn_rate = df["churn"].mean()
+print(f"Churn rate: {churn_rate:.2%}")
+
+sns.countplot(x="churn", data=df)
+plt.title("Customer Churn Distribution")
+plt.xlabel("Churn")
+plt.ylabel("Count")
+plt.show()
+
+sns.boxplot(x="churn", y="age", data=df)
+plt.title("Age Distribution by Churn Status")
+plt.show()
+
+
+```
+
+Churn rate: 20.37%
+
+
 <table>
   <tr>
     <td align="center">
       <a href="#" title="Age">
-        <img src="1.png" width="1000" alt="Rent"/><br>
+        <img src="1.png" width="1000" alt="Country"/><br>
       </a>
     </td>
   </tr>
 </table>
----
-
 
 ## Rent
 
@@ -120,39 +135,12 @@ dados.head()
 </table>
 
 
-baixo está a estrutura já adaptada.
-
-1. Importação
-python
 
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set(style="whitegrid")
-plt.rcParams["figure.figsize"] = (10, 6)
-2. Leitura da base
-python
 
 
-df = pd.read_csv("bank_churn.csv")
-df.head()
-3. Entendimento inicial
-python
 
 
-df.shape
-df.info()
-df.describe()
-df.isnull().sum()
-4. Duplicados
-python
-
-
-df.duplicated().sum()
-5. Remover identificador da análise
-python
 
 
 df_analysis = df.drop(columns=["customer_id"], errors="ignore")
