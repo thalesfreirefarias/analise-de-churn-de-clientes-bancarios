@@ -93,7 +93,33 @@ plt.show()
   </tr>
 </table>
 
+### Estimativa de Salario por cancelamento
+
+```
+sns.boxplot(x="churn", y="estimated_salary", data=df)
+plt.title("Estimated Salary by Churn Status")
+plt.show()
+
+```
+<table>
+  <tr>
+    <td align="center">
+      <a href="#" title="Age">
+        <img src="4.png" width="1000" alt="Slaary"/><br>
+      </a>
+    </td>
+  </tr>
+</table>
 ---
+### Por Pais
+
+```
+churn_by_country = df.groupby("country")["churn"].mean().sort_values(ascending=False)
+print(churn_by_country)
+```
+Alemanhã.
+Espanha.
+França.
 
 ## Tools Used
 - Python
@@ -144,45 +170,6 @@ The analysis suggests that churn is likely influenced by a combination of demogr
 </table>
 
 
-12. Score de crédito por churn
-python
-
-
-sns.boxplot(x="churn", y="credit_score", data=df_analysis)
-plt.title("Credit Score by Churn Status")
-plt.show()
-13. Saldo por churn
-python
-
-
-sns.boxplot(x="churn", y="balance", data=df_analysis)
-plt.title("Balance by Churn Status")
-plt.show()
-14. Tempo de relacionamento por churn
-python
-
-
-sns.boxplot(x="churn", y="tenure", data=df_analysis)
-plt.title("Tenure by Churn Status")
-plt.show()
-15. Cartão de crédito por churn
-python
-
-
-sns.countplot(x="credit_card", hue="churn", data=df_analysis)
-plt.title("Churn by Credit Card Ownership")
-plt.show()
-16. Salário estimado por churn
-python
-
-
-sns.boxplot(x="churn", y="estimated_salary", data=df_analysis)
-plt.title("Estimated Salary by Churn Status")
-plt.show()
-Insights em tabela resumida
-No notebook, depois dos gráficos, você pode montar algo assim:
-
-python
 
 
 churn_by_country = df_analysis.groupby("country")["churn"].mean().sort_values(ascending=False)
