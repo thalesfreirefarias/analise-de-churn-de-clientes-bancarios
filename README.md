@@ -105,12 +105,13 @@ plt.show()
   <tr>
     <td align="center">
       <a href="#" title="Age">
-        <img src="4.png" width="1000" alt="Slaary"/><br>
+        <img src="4.png" width="1000" alt="Salary"/><br>
       </a>
     </td>
   </tr>
 </table>
 ---
+
 ### Por Pais
 
 ```
