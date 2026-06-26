@@ -1,13 +1,15 @@
-# analise-de-churn-de-clientes-bancarios
+# Customer Churn Analysis in Banking
+
 This project analyzes customer churn behavior in a banking dataset to identify patterns associated with customer attrition. The analysis focuses on demographic, financial, and behavioral variables that may influence churn.
+
+## Project Overview
+
+The goal of this project is to understand which customer characteristics are more frequently associated with churn and to generate business insights that can support retention strategies.
+
 ---
 
-## 📌 Project Overview
 
-Understand which customer characteristics are more frequently associated with churn and generate business insights that could support retention strategies.
-
-
-### Import data
+### Load Dataset
 
 ```
 import pandas as pd
@@ -22,7 +24,7 @@ df = pd.read_csv("bank_churn.csv")
 df.head()
 ```
 
-### Cancelled percentage
+### Churn rate
 
 ```
 churn_rate = df["churn"].mean()
@@ -41,7 +43,9 @@ plt.show()
 
 ```
 
-Churn rate: 20.37%
+The overall churn rate is 20.37%, indicating that approximately one out of every five customers in the dataset left the bank.
+0-> Continue using
+1-> Cancelled
 
 
 <table>
@@ -63,8 +67,15 @@ plt.title("Churn by Active Membership")
 plt.show()
 
 ```
-0-> Continue using
-1-> Cancelled
+
+
+This chart suggests that inactive customers are more likely to churn than active customers.
+
+
+Where:
+
+0 = inactive customer
+1 = active customer
 
 <table>
   <tr>
@@ -82,7 +93,10 @@ sns.countplot(x="products_number", hue="churn", data=df)
 plt.title("Churn by Number of Products")
 plt.show()
 
+
 ```
+This visualization shows how churn behavior changes according to the number of products used by each customer, helping identify segments with higher attrition risk.
+
 <table>
   <tr>
     <td align="center">
@@ -93,7 +107,7 @@ plt.show()
   </tr>
 </table>
 
-### Estimativa de Salario por cancelamento
+### Estimated Salary by Churn Status
 
 ```
 sns.boxplot(x="churn", y="estimated_salary", data=df)
@@ -112,47 +126,66 @@ plt.show()
 </table>
 ---
 
-### Por Pais
+### Churn by country
 
 ```
 churn_by_country = df.groupby("country")["churn"].mean().sort_values(ascending=False)
 print(churn_by_country)
 ```
-Alemanhã.
-Espanha.
-França.
+The country-level analysis shows that **Germany** has the highest churn rate among the three countries in the dataset, followed by **Spain** and **France**
 
-## Tools Used
+## Additional Numerical Analysis
+
+To complement the visual analysis, churn rates were also calculated for key customer segments.
+
+```
+churn_by_country = df.groupby("country")["churn"].mean().sort_values(ascending=False)
+print(churn_by_country)
+
+churn_by_active = df.groupby("active_member")["churn"].mean().sort_values(ascending=False)
+print(churn_by_active)
+
+churn_by_products = df.groupby("products_number")["churn"].mean().sort_values(ascending=False)
+print(churn_by_products)
+```
+
+
+## Tools and Technologies
 - Python
 - Pandas
 - Matplotlib
 - Seaborn
 - Google Colab
+- NumPy
 
+## Dataset Features
 
-## Dataset Columns
-- customer_id
-- credit_score
-- country
-- gender
-- age
-- tenure
-- balance
-- products_number
-- credit_card
-- active_member
-- estimated_salary
-- churn
+- **customer_id**: unique customer identifier
+- **credit_score**: customer's credit score
+- **country**: customer's country of residence
+- **gender**: customer's gender
+- **age**: customer's age
+- **tenure**: number of years as a customer
+- **balance**: account balance
+- **products_number**: number of bank products used
+- **credit_card**: whether the customer has a credit card
+- **active_member**: whether the customer is an active member
+- **estimated_salary**: estimated annual salary
+- **churn**: whether the customer left the bank
 
 ## Key Insights
-- Churn is concentrated in specific customer segments.
-- Customer activity level appears strongly related to retention.
-- Age, country, and number of products may influence churn patterns.
-- Balance and credit profile can provide additional retention signals.
+
+- The overall churn rate is **20.37%**.
+- Older customers show a higher tendency to churn.
+- Inactive customers are significantly more likely to leave the bank.
+- Churn rates vary across countries, with **Germany** showing the highest rate in this dataset.
+- The number of products is also associated with churn behavior, suggesting differences in customer engagement.
 
 
 ## Business Conclusion
-The analysis suggests that churn is likely influenced by a combination of demographic profile, engagement level, and product relationship. Customers with lower engagement and specific account characteristics may deserve greater retention attention. These findings could support more targeted retention strategies in banking environments.
+
+The analysis suggests that customer churn is influenced by a combination of demographic characteristics, engagement level, and product relationship. Inactive customers, older clients, and specific country segments appear to be more vulnerable to attrition. These findings can help support more targeted retention strategies in the banking sector.
+
 
 
 ---
@@ -169,29 +202,3 @@ The analysis suggests that churn is likely influenced by a combination of demogr
     </td>
   </tr>
 </table>
-
-
-
-
-churn_by_country = df_analysis.groupby("country")["churn"].mean().sort_values(ascending=False)
-print(churn_by_country)
-churn_by_active = df_analysis.groupby("active_member")["churn"].mean()
-print(churn_by_active)
-churn_by_products = df_analysis.groupby("products_number")["churn"].mean()
-print(churn_by_products)
-Isso ajuda a sair do visual e mostrar também análise numérica.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
