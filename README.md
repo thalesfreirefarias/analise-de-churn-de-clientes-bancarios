@@ -34,30 +34,7 @@ This project uses Python to explore a banking churn dataset, visualize customer 
 - NumPy
 - Matplotlib
 - Seaborn
-- Jupyter Notebook / Google Colab
-
----
-
-## 📂 Repository Structure
-
-```text
-analise-de-churn-de-clientes-bancarios/
-│
-├── data/
-│   └── Bank Customer Churn Prediction.csv
-│
-├── images/
-│   ├── 1.png
-│   ├── 2.png
-│   ├── 3.png
-│   └── 4.png
-│
-├── notebooks/
-│   └── analise_de_churn_de_clientes_bancarios.ipynb
-│
-├── grecia.jpg
-└── README.md
-```
+- Google Colab
 
 ---
 
@@ -73,7 +50,7 @@ This means that roughly one in five customers in the dataset is classified as ha
 - 0 = Retained customer
 - 1 = Churned customer
 
-![Customer Churn Distribution](images/1.png)
+![Customer Churn Distribution](image/1.png)
 
 ### 2. Customer Activity and Churn
 
@@ -85,7 +62,7 @@ The visualization compares churn behavior between active and inactive customers.
 - 0 = Inactive customer
 - 1 = Active customer
 
-![Churn by Active Membership](images/2.png)
+![Churn by Active Membership](image/2.png)
 
 The analysis suggests an association between inactivity and customer churn.
 
@@ -93,7 +70,7 @@ The analysis suggests an association between inactivity and customer churn.
 
 This analysis explores how churn varies according to the number of banking products held by customers.
 
-![Churn by Number of Products](images/3.png)
+![Churn by Number of Products](image/3.png)
 
 Differences across product segments may help identify groups requiring further investigation.
 
@@ -101,7 +78,7 @@ Differences across product segments may help identify groups requiring further i
 
 This visualization compares estimated salary distributions between retained and churned customers.
 
-![Estimated Salary by Churn Status](images/4.png)
+![Estimated Salary by Churn Status](image/4.png)
 
 The objective is to explore whether salary distributions differ across churn groups.
 
