@@ -1,204 +1,218 @@
-# Customer Churn Analysis in Banking
 
-This project analyzes customer churn behavior in a banking dataset to identify patterns associated with customer attrition. The analysis focuses on demographic, financial, and behavioral variables that may influence churn.
+# 🏦 Bank Customer Churn Analysis
 
-## Project Overview
+### Exploratory Data Analysis | Python | Pandas | Seaborn
 
-The goal of this project is to understand which customer characteristics are more frequently associated with churn and to generate business insights that can support retention strategies.
+An exploratory data analysis project focused on understanding customer churn in the banking sector.
+
+The project investigates demographic, financial, and customer engagement characteristics associated with customer attrition.
 
 ---
 
+## 📌 Project Overview
 
-### Load Dataset
+Customer retention is an important challenge for financial institutions.
 
-```
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set(style="whitegrid")
-plt.rcParams["figure.figsize"] = (10, 6)
+Understanding the characteristics of customers who leave a bank can support the development of more targeted retention strategies.
 
+This project uses Python to explore a banking churn dataset, visualize customer behavior, and identify patterns associated with attrition.
 
-df = pd.read_csv("bank_churn.csv")
-df.head()
-```
+## 🎯 Objectives
 
-### Churn rate
+- Analyze the overall customer churn rate.
+- Explore demographic and financial characteristics.
+- Compare churn rates across customer segments.
+- Investigate relationships between engagement and churn.
+- Translate analytical findings into potential business actions.
 
-```
-churn_rate = df["churn"].mean()
-print(f"Churn rate: {churn_rate:.2%}")
-
-sns.countplot(x="churn", data=df)
-plt.title("Customer Churn Distribution")
-plt.xlabel("Churn")
-plt.ylabel("Count")
-plt.show()
-
-sns.boxplot(x="churn", y="age", data=df)
-plt.title("Age Distribution by Churn Status")
-plt.show()
-
-
-```
-
-The overall churn rate is 20.37%, indicating that approximately one out of every five customers in the dataset left the bank.
-0-> Continue using
-1-> Cancelled
-
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="#" title="Age">
-        <img src="1.png" width="1000" alt="Country"/><br>
-      </a>
-    </td>
-  </tr>
-</table>
-
-
-### Continue using the service
-
-```
-sns.countplot(x="active_member", hue="churn", data=df)
-plt.title("Churn by Active Membership")
-plt.show()
-
-```
-
-
-This chart suggests that inactive customers are more likely to churn than active customers.
-
-
-Where:
-
-0 = inactive customer
-1 = active customer
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="#" title="Age">
-        <img src="2.png" width="1000" alt="Used"/><br>
-      </a>
-    </td>
-  </tr>
-</table>
-
-
-```
-sns.countplot(x="products_number", hue="churn", data=df)
-plt.title("Churn by Number of Products")
-plt.show()
-
-
-```
-This visualization shows how churn behavior changes according to the number of products used by each customer, helping identify segments with higher attrition risk.
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="#" title="Age">
-        <img src="3.png" width="1000" alt="product"/><br>
-      </a>
-    </td>
-  </tr>
-</table>
-
-### Estimated Salary by Churn Status
-
-```
-sns.boxplot(x="churn", y="estimated_salary", data=df)
-plt.title("Estimated Salary by Churn Status")
-plt.show()
-
-```
-<table>
-  <tr>
-    <td align="center">
-      <a href="#" title="Age">
-        <img src="4.png" width="1000" alt="Salary"/><br>
-      </a>
-    </td>
-  </tr>
-</table>
 ---
 
-### Churn by country
+## 🛠️ Technologies
 
-```
-churn_by_country = df.groupby("country")["churn"].mean().sort_values(ascending=False)
-print(churn_by_country)
-```
-The country-level analysis shows that **Germany** has the highest churn rate among the three countries in the dataset, followed by **Spain** and **France**
-
-## Additional Numerical Analysis
-
-To complement the visual analysis, churn rates were also calculated for key customer segments.
-
-```
-churn_by_country = df.groupby("country")["churn"].mean().sort_values(ascending=False)
-print(churn_by_country)
-
-churn_by_active = df.groupby("active_member")["churn"].mean().sort_values(ascending=False)
-print(churn_by_active)
-
-churn_by_products = df.groupby("products_number")["churn"].mean().sort_values(ascending=False)
-print(churn_by_products)
-```
-
-
-## Tools and Technologies
 - Python
 - Pandas
+- NumPy
 - Matplotlib
 - Seaborn
-- Google Colab
-- NumPy
-
-## Dataset Features
-
-- **customer_id**: unique customer identifier
-- **credit_score**: customer's credit score
-- **country**: customer's country of residence
-- **gender**: customer's gender
-- **age**: customer's age
-- **tenure**: number of years as a customer
-- **balance**: account balance
-- **products_number**: number of bank products used
-- **credit_card**: whether the customer has a credit card
-- **active_member**: whether the customer is an active member
-- **estimated_salary**: estimated annual salary
-- **churn**: whether the customer left the bank
-
-## Key Insights
-
-- The overall churn rate is **20.37%**.
-- Older customers show a higher tendency to churn.
-- Inactive customers are significantly more likely to leave the bank.
-- Churn rates vary across countries, with **Germany** showing the highest rate in this dataset.
-- The number of products is also associated with churn behavior, suggesting differences in customer engagement.
-
-
-## Business Conclusion
-
-The analysis suggests that customer churn is influenced by a combination of demographic characteristics, engagement level, and product relationship. Inactive customers, older clients, and specific country segments appear to be more vulnerable to attrition. These findings can help support more targeted retention strategies in the banking sector.
-
-
+- Jupyter Notebook / Google Colab
 
 ---
 
-## 🤝 Author
+## 📂 Repository Structure
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://www.linkedin.com/in/thalesfreirefarias/" target="_blank">
-        <img src="grecia.jpg" width="100" alt="Thales Farias"/><br>
-        <sub><b>Thales Farias</b></sub>
-      </a>
-    </td>
-  </tr>
-</table>
+```text
+analise-de-churn-de-clientes-bancarios/
+│
+├── data/
+│   └── Bank Customer Churn Prediction.csv
+│
+├── images/
+│   ├── 1.png
+│   ├── 2.png
+│   ├── 3.png
+│   └── 4.png
+│
+├── notebooks/
+│   └── analise_de_churn_de_clientes_bancarios.ipynb
+│
+├── grecia.jpg
+└── README.md
+```
+
+---
+
+## 📊 Exploratory Data Analysis
+
+### 1. Customer Churn Distribution
+
+The dataset presents an overall churn rate of approximately **20.37%**, as reported in the analysis.
+
+This means that roughly one in five customers in the dataset is classified as having left the bank.
+
+**Target variable:**
+- 0 = Retained customer
+- 1 = Churned customer
+
+![Customer Churn Distribution](images/1.png)
+
+### 2. Customer Activity and Churn
+
+Customer engagement is an important dimension of retention analysis.
+
+The visualization compares churn behavior between active and inactive customers.
+
+**Active Member:**
+- 0 = Inactive customer
+- 1 = Active customer
+
+![Churn by Active Membership](images/2.png)
+
+The analysis suggests an association between inactivity and customer churn.
+
+### 3. Number of Products and Churn
+
+This analysis explores how churn varies according to the number of banking products held by customers.
+
+![Churn by Number of Products](images/3.png)
+
+Differences across product segments may help identify groups requiring further investigation.
+
+### 4. Estimated Salary and Churn
+
+This visualization compares estimated salary distributions between retained and churned customers.
+
+![Estimated Salary by Churn Status](images/4.png)
+
+The objective is to explore whether salary distributions differ across churn groups.
+
+### 5. Geographic Analysis
+
+Churn rates were also calculated by country.
+
+The analysis reports the following ranking:
+
+1. Germany
+2. Spain
+3. France
+
+These differences should be interpreted within the characteristics and limitations of the dataset.
+
+---
+
+## 🧮 Analytical Methods
+
+The project uses:
+
+- Data loading and inspection
+- Exploratory Data Analysis (EDA)
+- Grouping and aggregation
+- Churn rate calculations
+- Customer segmentation
+- Distribution comparisons
+- Data visualization
+
+### Example: Overall Churn Rate
+
+```python
+churn_rate = df["churn"].mean()
+
+print(f"Churn rate: {churn_rate:.2%}")
+```
+
+### Example: Churn by Customer Segment
+
+```python
+churn_by_country = (
+    df.groupby("country")["churn"]
+    .mean()
+    .sort_values(ascending=False)
+)
+
+churn_by_activity = (
+    df.groupby("active_member")["churn"]
+    .mean()
+)
+
+churn_by_products = (
+    df.groupby("products_number")["churn"]
+    .mean()
+)
+```
+
+---
+
+## 💡 Key Findings
+
+According to the exploratory analysis:
+
+- The overall churn rate is approximately 20.37%.
+- Inactive customers show a greater tendency to churn.
+- Older customers appear more frequently among churned customers.
+- Germany presents the highest churn rate among the countries analyzed.
+- Churn behavior differs according to the number of banking products held.
+
+These findings describe associations observed in the dataset and do not establish causal relationships.
+
+---
+
+## 💼 Business Implications
+
+The analysis suggests potential opportunities for banking institutions to:
+
+- Monitor customer engagement.
+- Investigate segments with higher churn rates.
+- Develop targeted retention initiatives.
+- Evaluate customer relationships across product categories.
+- Support retention decisions with data.
+
+These are possible applications of the analysis, not validated outcomes of implemented retention strategies.
+
+---
+
+## ⚠️ Limitations
+
+This project is exploratory and does not establish causal relationships.
+
+The results depend on the dataset's characteristics, quality, and representativeness.
+
+No predictive model performance or business impact has been validated in this analysis.
+
+The dataset source and usage conditions should be documented before treating the results as representative of a real banking population.
+
+---
+
+## 👨‍💻 Author
+
+**Thales Farias**
+
+Financial Services | Data Analytics | Business Intelligence
+
+📍 São Paulo, Brazil
+
+💼 [LinkedIn](https://www.linkedin.com/in/thalesfreirefarias/)
+
+🐙 [GitHub](https://github.com/thalesfreirefarias)
+
+---
+
+*Exploring banking data to transform customer behavior into actionable business insights.*
